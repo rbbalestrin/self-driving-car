@@ -18,13 +18,13 @@ class Car {
     this.controls = new Controls()
   }
 
-  update() {
+  update(roadBorders) {
     this.#applyAcceleration();
     this.#applyFriction();
     this.#limitSpeed();
     this.#handleSteering();
     this.#updatePosition();
-    this.sensor.update();
+    this.sensor.update(roadBorders);
     console.log("updated")
   }
 
