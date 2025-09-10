@@ -9,13 +9,18 @@ class Sensor {
   }
 
   update() {
+    this.#castRays();
+  }
+
+  #castRays() {
+
     this.rays = []
     for (let i = 0; i < this.rayCount; i++) {
       console.log(i)
       const rayAngle = lerp(
         this.raySpread / 2,
         -this.raySpread / 2,
-        i / (this.rayCount - 1)
+        this.rayCount == 1 ? 0.5 : i / (this.rayCount - 1)
       ) + this.car.angle
 
       const start = { x: this.car.x, y: this.car.y }
@@ -28,7 +33,6 @@ class Sensor {
       }
       this.rays.push([start, end])
     }
-    console.log("rays:", this.rays); // 👈 check if rays are being created
   }
 
   draw(ctx) {
