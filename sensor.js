@@ -1,7 +1,7 @@
 class Sensor {
   constructor(car) {
     this.car = car
-    this.rayCount = 11
+    this.rayCount = 8
     this.rayLength = 300
     this.raySpread = Math.PI / 2
 
@@ -56,7 +56,6 @@ class Sensor {
   #castRays() {
     this.rays = []
     for (let i = 0; i < this.rayCount; i++) {
-      console.log(i)
       const rayAngle = lerp(
         this.raySpread / 2,
         -this.raySpread / 2,
